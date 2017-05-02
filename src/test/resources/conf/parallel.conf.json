@@ -1,0 +1,34 @@
+{
+  "server": "hub-cloud.browserstack.com",
+  "user": "user",
+  "key": "key",
+
+  "capabilities": {
+    "build": "testng-browserstack",
+    "name": "parallel_test",
+    "browserstack.debug": true
+  },
+
+  "environments": {
+    "chromelatest": {
+      "browser": "chrome"
+    },
+    "firefox": {
+      "browser": "firefox"
+    },
+    "safari": {
+      "browser": "safari"
+    },
+    "ie": {
+      "browser": "internet explorer"
+    },
+     "edge": {
+      "browser": "edge"
+    },
+    "chrome52": {
+      "browser": "chrome",
+      "OS": "WINDOWS",
+      "browser_version": "52"
+    }
+  }
+}
