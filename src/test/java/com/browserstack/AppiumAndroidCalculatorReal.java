@@ -20,7 +20,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
+//Individual sessions for each test
 public class AppiumAndroidCalculatorReal {
 	
 	AppiumDriver driver;
@@ -39,14 +39,6 @@ public class AppiumAndroidCalculatorReal {
 		capabilities.setCapability("deviceName", "Android");
 		capabilities.setCapability("platformName","Android");
 		capabilities.setCapability("udid", "ZX1D636N43");
-		
-		//capabilities.setCapability("no-reset", "true");
-		//capabilities.setCapability("full-reset", "False");
-
-		//capabilities.setCapability("platformName", "iOS");
-		//capabilities.setCapability("udid", “UDID of device“);
-		//capabilities.setCapability("bundleId", “app bundle id“);
-		//capabilities.setCapability("showIOSLog", true);
 		
 		capabilities.setCapability("app", app.getAbsolutePath());
 		driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
