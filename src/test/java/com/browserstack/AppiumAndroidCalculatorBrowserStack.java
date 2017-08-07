@@ -20,7 +20,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
+//All Calculator tests in one session
 public class AppiumAndroidCalculatorBrowserStack {
 	
 	AppiumDriver driver;
@@ -44,16 +44,7 @@ public class AppiumAndroidCalculatorBrowserStack {
         capabilities.setCapability("name", "KalpeshAppiumTest");
         capabilities.setCapability("browserstack.debug", "true");
         capabilities.setCapability("deviceOrientation", "portrait");
-		
-		//capabilities.setCapability("no-reset", "true");
-		//capabilities.setCapability("full-reset", "False");
 
-		//capabilities.setCapability("platformName", "iOS");
-		//capabilities.setCapability("udid", “UDID of device“);
-		//capabilities.setCapability("bundleId", “app bundle id“);
-		//capabilities.setCapability("showIOSLog", true);
-		
-		//capabilities.setCapability("app", app.getAbsolutePath());
 		driver = new AndroidDriver(new URL("https://username:accesskey@hub.browserstack.com/wd/hub"), capabilities);
 	}
 	
@@ -64,6 +55,8 @@ public class AppiumAndroidCalculatorBrowserStack {
 		WebElement insertTextElement1;
 		WebElement insertTextElement2;
 		WebElement clearElement;
+		
+		//Addition
 		
 		System.out.println("I am in addition");
 		
@@ -93,7 +86,10 @@ public class AppiumAndroidCalculatorBrowserStack {
 	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnclr")));
 	      clearElement.click();
 	      
-		     System.out.println("I am subtraction");
+		    
+	    //Subtraction
+	      
+	      System.out.println("I am subtraction");
 	      
 	      
 	      insertTextElement1 = new WebDriverWait(driver, 30).until(
@@ -120,6 +116,9 @@ public class AppiumAndroidCalculatorBrowserStack {
 	     clearElement = new WebDriverWait(driver, 30).until(
 	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnclr")));
 	      clearElement.click();
+	      
+	      
+	    //Division
 	      
 	      System.out.println("I am division");
 	      
@@ -148,6 +147,9 @@ public class AppiumAndroidCalculatorBrowserStack {
 	     clearElement = new WebDriverWait(driver, 30).until(
 	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnclr")));
 	      clearElement.click();   
+	      
+	      
+	    //Multiplication
 	      
 	      System.out.println("I am in multiplication");
 	      
@@ -178,139 +180,7 @@ public class AppiumAndroidCalculatorBrowserStack {
 	      clearElement.click();
 		
 	}
-	
-	
-	/*@Test
-	public void addition() throws Exception {
-		
-	      WebElement insertTextElement1 = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/editOp1")));
-	          insertTextElement1.sendKeys("10");
-	          
-	    Thread.sleep(2000);
-	    
-	      WebElement insertTextElement2 = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/editOp2")));
-	          insertTextElement2.sendKeys("5");
-	          
-	    Thread.sleep(2000);
-	    
-	      WebElement addElement = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnadd")));
-	          addElement.click();
-	          
-	     Thread.sleep(2000);
-	     
-	     Assert.assertTrue(Double.parseDouble(driver.findElement(By.id("com.example.kalpesh.calculator:id/result")).getText()) == 15.0);
-        
-	     
-	     Thread.sleep(2000);
-	     WebElement clearElement = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnclr")));
-	      clearElement.click();
-	     
-	     System.out.println("I am in addition");
 
-	}
-	
-	
-	@Test
-	public void subtraction() throws Exception {
-		
-	      WebElement insertTextElement1 = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/editOp1")));
-	          insertTextElement1.sendKeys("10");
-	          
-	    Thread.sleep(2000);
-	    
-	      WebElement insertTextElement2 = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/editOp2")));
-	          insertTextElement2.sendKeys("5");
-	          
-	    Thread.sleep(2000);
-	    
-	      WebElement addElement = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnsub")));
-	          addElement.click();
-	          
-	     Thread.sleep(2000);
-	     
-	     Assert.assertTrue(Double.parseDouble(driver.findElement(By.id("com.example.kalpesh.calculator:id/result")).getText()) == 5.0);
-	     
-	     Thread.sleep(2000);
-	     WebElement clearElement = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnclr")));
-	      clearElement.click();
-	     
-	     System.out.println("I am subtraction");
-
-	}
-	
-	
-	@Test
-	public void division() throws Exception {
-		
-	      WebElement insertTextElement1 = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/editOp1")));
-	          insertTextElement1.sendKeys("10");
-	          
-	    Thread.sleep(2000);
-	    
-	      WebElement insertTextElement2 = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/editOp2")));
-	          insertTextElement2.sendKeys("5");
-	          
-	    Thread.sleep(2000);
-	    
-	      WebElement addElement = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btndiv")));
-	          addElement.click();
-	          
-	     Thread.sleep(2000);
-	     
-	     Assert.assertTrue(Double.parseDouble(driver.findElement(By.id("com.example.kalpesh.calculator:id/result")).getText()) == 2.0);
-	     
-	     Thread.sleep(2000);
-	     WebElement clearElement = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnclr")));
-	      clearElement.click();
-	     
-	     System.out.println("I am division");
-
-	}
-	
-	
-	@Test
-	public void multiplication() throws Exception {
-		
-	      WebElement insertTextElement1 = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/editOp1")));
-	          insertTextElement1.sendKeys("10");
-	          
-	    Thread.sleep(2000);
-	    
-	      WebElement insertTextElement2 = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/editOp2")));
-	          insertTextElement2.sendKeys("5");
-	          
-	    Thread.sleep(2000);
-	    
-	      WebElement addElement = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnmul")));
-	          addElement.click();
-	          
-	     Thread.sleep(2000);
-	     
-	     Assert.assertTrue(Double.parseDouble(driver.findElement(By.id("com.example.kalpesh.calculator:id/result")).getText()) == 50.0);
-	     
-	     Thread.sleep(2000);
-	     WebElement clearElement = new WebDriverWait(driver, 30).until(
-	              ExpectedConditions.elementToBeClickable(By.id("com.example.kalpesh.calculator:id/btnclr")));
-	      clearElement.click();
-	     
-	     System.out.println("I am in multiplication");
-
-	}*/
 	
     @AfterMethod(alwaysRun=true)
     public void tearDown() throws Exception {
