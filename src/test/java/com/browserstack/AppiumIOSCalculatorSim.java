@@ -21,6 +21,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+//Individual sessions for each test
 public class AppiumIOSCalculatorSim {
 	
 	WebDriver driver;
@@ -31,18 +32,13 @@ public class AppiumIOSCalculatorSim {
 	{
 		System.out.println("I am in setup");
 		
-		//app = new File("/Applications/Official/AppAutomate/Calculator/calculator.apk");
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("deviceName", "iPhone 6");
-        //capabilities.setCapability("platformVersion", "10.1");
         capabilities.setCapability("app", "/Users/kalpesh/Desktop/Calculator1.app");
         capabilities.setCapability("browserName", "");
         capabilities.setCapability("automationName" ,  "XCUITest");
-        //capabilities.setCapability("deviceOrientation", "portrait");
-        //capabilities.setCapability("appiumVersion", "1.5.3");
-
 		
         driver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 	}
