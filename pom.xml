@@ -25,9 +25,25 @@
 			<version>6.9.10</version>
 		</dependency>
 		<dependency>
+        
+        <groupId>net.lightbody.bmp</groupId>
+        <!-- To use the legacy, Jetty-based implementation, 
+             change the artifactId to browsermob-core -->
+        <artifactId>browsermob-core-littleproxy</artifactId>
+        <version>2.1.0-beta-5</version>
+        <scope>test</scope>
+    </dependency>
+		
+		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
 			<version>2.1.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.xamarin.testcloud</groupId>
+		    <artifactId>appium</artifactId>
+		    <version>1.0</version>
 		</dependency>
 
 		<dependency>
@@ -78,9 +94,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>/Applications/Official/testng-browserstack-master/config/suite.testng.xml</suiteXmlFile>
-						<suiteXmlFile>/Applications/Official/testng-browserstack-master/config/local.testng.xml</suiteXmlFile>
-						<suiteXmlFile>/Applications/Official/testng-browserstack-master/config/parallel.testng.xml</suiteXmlFile>
+						<!-- <suiteXmlFile>/Applications/Official/testng-browserstack-master/config/suite.testng.xml</suiteXmlFile>
+						<suiteXmlFile>/Applications/Official/testng-browserstack-master/config/local.testng.xml</suiteXmlFile>-->
+						<!--<suiteXmlFile>/Applications/Official/testng-browserstack-master/config/parallel.testng.xml</suiteXmlFile>-->
 						<suiteXmlFile>/Applications/Official/testng-browserstack-master/config/single.testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
@@ -154,6 +170,74 @@
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+		
+		<profile>
+		  <id>prepare-for-upload</id>
+		  <build>
+		    <plugins>
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-dependency-plugin</artifactId>
+		        <version>2.10</version>
+		        <executions>
+		          <execution>
+		            <id>copy-dependencies</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>copy-dependencies</goal>
+		            </goals>
+		            <configuration>
+		              <outputDirectory>${project.build.directory}/upload/dependency-jars/</outputDirectory>
+		              <useRepositoryLayout>true</useRepositoryLayout>
+		              <copyPom>true</copyPom>
+		              <addParentPoms>true</addParentPoms>
+		            </configuration>
+		          </execution>
+		        </executions>
+		      </plugin>
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-help-plugin</artifactId>
+		        <version>2.2</version>
+		        <executions>
+		          <execution>
+		            <id>generate-pom</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>effective-pom</goal>
+		            </goals>
+		            <configuration>
+		              <output>${project.build.directory}/upload/pom.xml</output>
+		            </configuration>
+		          </execution>
+		        </executions>
+		      </plugin>
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-resources-plugin</artifactId>
+		        <executions>
+		          <execution>
+		            <id>copy-testclasses</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>testResources</goal>
+		            </goals>
+		            <configuration>
+		              <outputDirectory>${project.build.directory}/upload/test-classes</outputDirectory>
+		              <resources>
+		                <resource>
+		                  <directory>
+		                    ${project.build.testOutputDirectory}
+		                  </directory>
+		                </resource>
+		              </resources>
+		            </configuration>
+		          </execution>
+		        </executions>
+		      </plugin>
+		    </plugins>
+		  </build>
 		</profile>
 
 		<profile>

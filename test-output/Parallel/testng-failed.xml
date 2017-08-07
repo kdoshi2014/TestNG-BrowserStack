@@ -45,8 +45,8 @@
       <class name="com.browserstack.SingleTest"/>
     </classes>
   </test> <!-- SingleTestEdge -->
-  <test name="SingleTestFirefox(failed)" parallel="tests">
-    <parameter name="environment" value="firefox"/>
+  <test name="SingleTestSafari(failed)" parallel="tests">
+    <parameter name="environment" value="safari"/>
     <parameter name="config" value="parallel.conf.json"/>
     <classes>
       <class name="com.browserstack.SingleTest">
@@ -67,30 +67,7 @@
         </methods>
       </class> <!-- com.browserstack.SingleTest -->
     </classes>
-  </test> <!-- SingleTestFirefox(failed) -->
-  <test name="SingleTestEdge(failed)" parallel="tests">
-    <parameter name="environment" value="edge"/>
-    <parameter name="config" value="parallel.conf.json"/>
-    <classes>
-      <class name="com.browserstack.SingleTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="tearDown"/>
-          <include name="tearDown"/>
-          <include name="tearDown"/>
-          <include name="tearDown"/>
-          <include name="tearDown"/>
-          <include name="testLogin"/>
-          <include name="setUp"/>
-          <include name="setUp"/>
-          <include name="setUp"/>
-          <include name="setUp"/>
-          <include name="setUp"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.browserstack.SingleTest -->
-    </classes>
-  </test> <!-- SingleTestEdge(failed) -->
+  </test> <!-- SingleTestSafari(failed) -->
   <test name="SingleTestIE(failed)" parallel="tests">
     <parameter name="environment" value="ie"/>
     <parameter name="config" value="parallel.conf.json"/>
@@ -114,4 +91,50 @@
       </class> <!-- com.browserstack.SingleTest -->
     </classes>
   </test> <!-- SingleTestIE(failed) -->
+  <test name="SingleTestChromeLatest(failed)" parallel="tests">
+    <parameter name="environment" value="chromelatest"/>
+    <parameter name="config" value="parallel.conf.json"/>
+    <classes>
+      <class name="com.browserstack.SingleTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="testLogin"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.browserstack.SingleTest -->
+    </classes>
+  </test> <!-- SingleTestChromeLatest(failed) -->
+  <test name="SingleTestFirefox(failed)" parallel="tests">
+    <parameter name="environment" value="firefox"/>
+    <parameter name="config" value="parallel.conf.json"/>
+    <classes>
+      <class name="com.browserstack.SingleTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="testLogin"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.browserstack.SingleTest -->
+    </classes>
+  </test> <!-- SingleTestFirefox(failed) -->
 </suite> <!-- Failed suite [Parallel] -->

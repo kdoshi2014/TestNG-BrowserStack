@@ -14,5 +14,6 @@ public class LocalTest extends BrowserStackTestNGTest {
         
 		driver.get("http://localhost/dashboard/");
         Assert.assertTrue(driver.getPageSource().contains("Apache Friends"));
+        System.out.println(driver.manage().logs().get("chrome"));
     }
 }

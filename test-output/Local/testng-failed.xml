@@ -10,4 +10,17 @@
       <class name="com.browserstack.LocalTest"/>
     </classes>
   </test> <!-- LocalTest -->
+  <test name="LocalTest(failed)">
+    <parameter name="environment" value="chrome"/>
+    <parameter name="config" value="local.conf.json"/>
+    <classes>
+      <class name="com.browserstack.LocalTest">
+        <methods>
+          <include name="test"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.browserstack.LocalTest -->
+    </classes>
+  </test> <!-- LocalTest(failed) -->
 </suite> <!-- Failed suite [Local] -->

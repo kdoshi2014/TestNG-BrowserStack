@@ -7,7 +7,21 @@
     <parameter name="environment" value="chrome"/>
     <parameter name="config" value="single.conf.json"/>
     <classes>
-      <class name="com.browserstack.SingleTest"/>
+      <class name="com.browserstack.AppiumIOSCalculatorSim"/>
     </classes>
   </test> <!-- SingleTest -->
+  <test name="SingleTest(failed)">
+    <parameter name="environment" value="chrome"/>
+    <parameter name="config" value="single.conf.json"/>
+    <classes>
+      <class name="com.browserstack.AppiumIOSCalculatorSim">
+        <methods>
+          <include name="multiplication"/>
+          <include name="tearDown"/>
+          <include name="subtraction"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.browserstack.AppiumIOSCalculatorSim -->
+    </classes>
+  </test> <!-- SingleTest(failed) -->
 </suite> <!-- Failed suite [Single] -->
